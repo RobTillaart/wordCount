@@ -1,0 +1,19 @@
+# Syntax Colouring Map For wordCount
+
+# Data types (KEYWORD1)
+wordCount	KEYWORD1
+
+
+# Methods and Functions (KEYWORD2)
+reset	KEYWORD2
+
+lines	KEYWORD2
+words	KEYWORD2
+chars	KEYWORD2
+digits	KEYWORD2
+
+
+
+# Constants (LITERAL1)
+WORDCOUNT_LIB_VERSION	LITERAL1
+
