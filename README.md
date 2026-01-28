@@ -45,6 +45,7 @@ Just other "stream wrapping" libraries
 - https://github.com/RobTillaart/Multiplex - Arduino Library implementing a Print stream multiplexer.
 - https://github.com/RobTillaart/SHEX - Arduino library to generate hex dump over Serial
 - https://github.com/RobTillaart/XMLWriter - Arduino Library to create simple XML
+- https://github.com/RobTillaart/printHelpers - for big numbers.
 
 
 ### Tested
@@ -63,7 +64,7 @@ so the char counter could be +1.
 ### Constructor
 
 - **wordCount(Stream \* stream = &Serial)** constructor
-- **void reset()** - resets counters
+- **void reset()** - resets counters and start time for throughput measurements.
 
 ### Core
 
@@ -71,6 +72,20 @@ so the char counter could be +1.
 - **uint32_t digits()** idem.
 - **uint32_t lines()** idem.
 - **uint32_t words()** idem.
+
+### Throughput
+
+- **float bytesPerSecond()** idem.
+- **float Bps()** Bytes per second
+- **float kBps()** kiloBytes per second
+- **float MBps()** MegaBytes per second
+- **float wordsPerSecond()** idem.
+- **float linesPerSecond()** idem.
+
+### Statistics
+
+- **float averageCharsPerLine()** idem (includes \n\r).
+
 
 ## Future
 
@@ -85,12 +100,11 @@ so the char counter could be +1.
 #### Could
 
 - investigate new functions.
-  - average line length
-  - average word length
+  - average word length (difficult!)
   - add user defined counter e.g. count a user defined char e.g. @ or !
   - printable(), non-printable, ASCII, "above 127"
   - call back on user defined char / substring?
-  - 
+  - float averageCharsPerLine() corrected for \n\r?
 - create unit tests. Lorum ipsum
 
 

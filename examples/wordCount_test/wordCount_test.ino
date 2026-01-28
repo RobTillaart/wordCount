@@ -75,6 +75,23 @@ void setup()
   wc.print("phone = 0123654789");
   Serial.println(wc.chars());
   Serial.println(wc.digits());
+
+  Serial.println();
+  wc.reset();
+  wc.println(lorem);
+  wc.println("\n\n\n");  //  just add dummy lines.
+  Serial.print("BPS:\t");
+  Serial.println(wc.Bps());
+  Serial.print("kBPS:\t");
+  Serial.println(wc.kBps());
+  Serial.print("MBPS:\t");
+  Serial.println(wc.MBps());
+  Serial.print("WPS:\t");
+  Serial.println(wc.wordsPerSecond());
+  Serial.print("LPS:\t");
+  Serial.println(wc.linesPerSecond());
+  Serial.print("ACL:\t");
+  Serial.println(wc.averageCharsPerLine());
 }
 
 void loop()

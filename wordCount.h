@@ -20,6 +20,7 @@ public:
   wordCount(Print* stream = &Serial)
   {
     _stream = stream;
+    reset();
   };
 
   uint32_t lines()  { return _lines; };
@@ -27,12 +28,39 @@ public:
   uint32_t chars()  { return _chars; };
   uint32_t digits() { return _digits; };
 
+  //  THROUGHPUT
+  float    bytesPerSecond()
+  {
+    return (1000.0 * _chars) / (millis() - _startTime);
+  }
+  float    Bps()  { return bytesPerSecond(); };
+  float    kBps() { return bytesPerSecond() / 1024.0f; };
+  float    MBps() { return bytesPerSecond() / (1024.0f * 1024.0f); };
+
+  float    wordsPerSecond()
+  {
+    return (1000.0 * _words) / (millis() - _startTime);
+  }
+
+  float    linesPerSecond()
+  {
+    return (1000.0 * _lines) / (millis() - _startTime);
+  }
+
+  //  STATISTICS
+  float    averageCharsPerLine()
+  {
+    if (_lines <= 0) return -1;
+    return (1.0 * _chars) / _lines;
+  }
+
   void reset()
   {
     _lines  = 0;
     _words  = 0;
     _chars  = 0;
     _inWord = false;
+    _startTime = millis();
   };
 
 
@@ -82,6 +110,7 @@ private:
   uint32_t _digits = 0;
 
   bool     _inWord = false;
+  uint32_t _startTime = 0;
 };
 
 
